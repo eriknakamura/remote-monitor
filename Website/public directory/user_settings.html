@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+</head>
+<body>
+<form class="reset_password" action = "rest_password.php" method="POST">
+    Username: <br>
+    <input type="text" name="resetpassword_username" id="resetpassword_username"><br>
+    Old Password <br>
+    <input type="password" name="resetpassword_oldpassword" id="resetpassword_oldpassword"><br>
+    <input type="button" value ="Show Password" onclick="showPassword(true,'resetpassword_oldpassword')">
+    New Password <br>
+    <input type="password" name="resetpassword_newpassword" id="resetpassword_newpassword"><br>
+    Verify New Password: <br>
+    <input type="password" name="resetpassword_newpassword_verify" id="resetpassword_newpassword_verify"><br>
+    <input type="button" value ="Show Password" onclick="showPassword(true,'resetpassword_newpassword','resetpassword_newpassword_verify')">
+    <button type="submit">Reset Password</button>
+</form>
+
+</body>
+</html>
+
+<script>
+    function showPassword(state,id,optionalId){
+        var field = document.getElementById(id);
+        if(state){
+            field.setAttribute('type','text');
+        }
+        else if(!state){
+            field.setAttribute('type','password');
+        }
+        if(typeof optionalId != 'undefined'){
+            var field2 = document.getElementById(optionalId);
+            if(state){
+                field2.setAttribute('type','text');
+            }
+            else if(!state){
+                field2.setAttribute('type','password');
+            }
+        }
+    }
+
+</script>
